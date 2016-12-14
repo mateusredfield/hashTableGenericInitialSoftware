@@ -1,0 +1,172 @@
+<html>
+
+<head>
+	<title>Cadastros</title>
+
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <!--Local-->
+ 
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/resources/js/bootstrap.min.js"></script>
+
+    <style media="screen" type="text/css">	
+     	.menuAlto ul {
+    		list-style-type: none;
+    		margin-top: 10px;
+		    overflow: hidden;
+		    background-color: #333;
+		}
+		.menuAlto li {
+		    float: left;
+		}
+		.menuAlto li a {
+		    display: block;
+		    color: white;
+		    text-align: center;
+		    padding: 14px 16px;
+		    text-decoration: none;
+		}
+		.menuAlto li a:hover {
+		    background-color: #111;
+		    color:white;
+		}
+	</style>
+</head>
+
+<body>
+
+<span class="menuAlto">
+	<ul>
+		<li>
+			<a href="/index.html">Home</a>
+		</li>
+		<li>
+			<a href="/Cadastros/Cadastros.html">Cadastro de Trabalhadores</a>
+		</li>
+		<li>
+			<a href="/Listagens/ListagemDeTrabalhadores.html">Buscas na Base de Dados</a>
+		</li>
+	</ul>
+</span>
+
+
+<p style="border:solid 1px black; 
+		  background-color:white; 
+		  margin-left:10px; 
+		  margin-right:10px;
+		  margin-top:10px;
+		  text-align:center;
+		  font-size: 24px;">
+		  <b>
+		  	<input class="center-block" type="submit" 
+		  	  style="width:100%;" value="Listar Trabalhadores" onClick="ListagemDeTrabalhadores()">
+		  </b>
+</p>
+
+<div class= "container-fluid" style="border:solid 1px black; margin:0 10px 50px 10px">
+	<div class="paragrafo1" style="margin:0px 0 15px 10px">
+		<h3 class="text-center"><b>Dados dos Trabalhadores</b></h3>
+		<div class="row" style="margin-top:15px;margin-bottom:5px;">
+			<div class="col-md-6">
+				<span id="jsonGeral" style="width:70%; float:left;">
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<p style="border:solid 1px black; 
+		  background-color:white; 
+		  margin-left:10px; 
+		  margin-right:10px;
+		  margin-top:10px;
+		  text-align:center;
+		  font-size: 24px;">
+		  <b>
+		  	<input class="center-block" type="submit" 
+		  	  style="width:100%;" value="Listar Trabalhadores Externos" onClick="ListagemDeTrabalhadoresExternos()">
+		  </b>
+</p>
+
+<div class= "container-fluid" style="border:solid 1px black; margin:0 10px 50px 10px">
+	<div class="paragrafo1" style="margin:0px 0 15px 10px">
+		<h3 class="text-center"><b>Dados dos Trabalhadores Externos</b></h3>
+		<div class="row" style="margin-top:15px;margin-bottom:5px;">
+			<div class="col-md-6">
+				<span id="jsonGeralExterno" style="width:70%; float:left;">
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<p style="border:solid 1px black; 
+		  background-color:white; 
+		  margin-left:10px; 
+		  margin-right:10px;
+		  margin-top:10px;
+		  text-align:center;
+		  font-size: 24px;">
+		  <b>
+		  	<input class="center-block" type="submit" 
+		  	  style="width:100%;" value="Listar Empreass Clientes" onClick="ListagemDeEmpresasClientes()">
+		  </b>
+</p>
+
+<div class= "container-fluid" style="border:solid 1px black; margin:0 10px 50px 10px">
+	<div class="paragrafo1" style="margin:0px 0 15px 10px">
+		<h3 class="text-center"><b>Dados das Empresas Clientes</b></h3>
+		<div class="row" style="margin-top:15px;margin-bottom:5px;">
+			<div class="col-md-6">
+				<span id="jsonGeralEmpresaCliente" style="width:70%; float:left;">
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	function ListagemDeTrabalhadores(){
+		$.post('ListagemDeTrabalhadores.php', function(data){
+ 			var dados = jQuery.parseJSON(data);
+ 			var text = "";
+ 			for(var i = 0; i < dados.length; i++){
+ 				text = text + '<br><p>Nome:'+dados[i].Nome+'<br>dataDeNasc:'+dados[i].DataDeNasc+'<br>CPF:'+dados[i].CPF+'<br>PIS:'+dados[i].PIS+'<br>Profissão de Registro:'+dados[i].ProfissaoDeRegistro+'<br>Endereço:'+dados[i].Endereco+'<br>Email:'+dados[i].Email+'<br>Data de Registro:'+dados[i].DataDeRegistro;
+ 			}
+ 			$('#jsonGeral').html(text);
+ 		})
+	}
+
+	function ListagemDeTrabalhadoresExternos(){
+		$.post('ListagemDeTrabalhadoresExternos.php', function(data){
+ 			var dados = jQuery.parseJSON(data);
+ 			var text = "";
+ 			for(var i = 0; i < dados.length; i++){
+ 				text = text + '<br><p>Nome:'+dados[i].nome+'<br>dataDeNasc:'+dados[i].dataDeNascimento+'<br>CPF:'+dados[i].cpf+'<br>PIS:'+dados[i].pis+'<br>deficiência:'+dados[i].deficiencia+'<br>nome do pai:'+dados[i].nomeDoPai+'<br>nome da mãe:'+dados[i].nomeDaMae+'<br>RG:'+dados[i].rg+'<br>CTPS:'+dados[i].ctps+'<br>Telfone:'+dados[i].telefoneDoProfissional+'<br>Email:'+dados[i].emailDoProfissional;
+ 			}
+ 			$('#jsonGeralExterno').html(text);
+ 		})	
+	}
+
+	function ListagemDeEmpresasClientes(){
+		$.post('ListagemDeEmpresasClientes.php', function(data){
+ 			var dados = jQuery.parseJSON(data);
+ 			var text = "";
+ 			for(var i = 0; i < dados.length; i++){
+ 				text = text + '<br><p>Razao Social:'+dados[i].razaoSocial+'<br>Endereco:'+dados[i].endereco+'<br>Ramo de Atividade:'+dados[i].ramoDeAtividade+'<br>C.N.A.E:'+dados[i].cnae+'<br>Grau de Risco:'+dados[i].grauDeRisco+'<br>nroDeTrabalhadores:'+dados[i].nroDeTrabalhadores+'<br>BR/PDH:'+dados[i].brPdh+'<br>C.N.P.J/C.G.C:'+dados[i].cnpjCgc+'<br>Horario de Trabalho:'+dados[i].horarioDeTrabalho+'<br>Responsável Legal:'+dados[i].responsavelLegal+'<br>PIS/PASEP/CI:'+dados[i].pisPasepCi+'<br>Telefone:'+dados[i].telefone+'<br>Email:'+dados[i].email+'<br>Data do Cadastro:'+dados[i].dataDoCadastro+'<br>Data do Contrato:'+dados[i].dataDoContrato+'<br>Tipo de Cobrança:'+dados[i].tipoDeCobranca;
+ 			}
+ 			$('#jsonGeralEmpresaCliente').html(text);
+ 		})	
+	}
+
+</script>
