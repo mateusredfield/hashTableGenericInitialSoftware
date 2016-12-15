@@ -1,18 +1,20 @@
 Tasks:
-	    *** fazer uma pagina que é como update da clinica matriz como sendo uma 
+	  *** fazer uma pagina que é como update da clinica matriz como sendo uma 
 		  tupla vazio que pode ser atualizada
-		*** Fazer mascaras com jquery
 		*** Fazer combobox para selecionar a area de que nao vai dar hide
-		*************** Fazer na mao Falta cadastro de clinica matriz
-		******************** Parei aqui Fazer buscas - Chamada da busca quase ok. Falta listar os dados com um html de hide
+		********* Fazer na mao Falta cadastro de clinica matriz
+		************************ Parei aqui Fazer buscas - Chamada da busca quase ok. Falta listar os dados com um html de hide
+    ********************* Classe de menu top, cores e Drop down menu
 		********** Pegar o arquivo do drive shareado comigo e colocar no drive geral
 		**** Melhorar usabilidade do botao com hide
-		******************** Todas as restições do papel nao tem no front, e se tiver no back
+		***** Rever depois Todas as restições do papel nao tem no front, e se tiver no back
 		  vai faltar o retorno
 		*** Colocar os alerts nas callbacks
 
 BackLog
-   Falta pasta conjunta do docs
+   
+   Falta ajustar o menu superiro com classe e atributos e dropdown
+   Faltam as buscas
    Falta mascara do cpf
    Falta colocar o menu top como classe, mesmo caso das variaveis locais/produção
    Falta corrigir o botao da clinica matriz ou retirar o html
@@ -34,6 +36,7 @@ BackLog
    Falta logins e secao da matriz diversificadas
    Falta update - modulo 2
    Falta delete - modulo 2
+   Falta pasta conjunta do docs
    - Atualização no html de buscas para injetar trabalhadores externos e permitir busca
    - Serviço de busca de trabalhadores externos
    - Cabeçalho atualizado
