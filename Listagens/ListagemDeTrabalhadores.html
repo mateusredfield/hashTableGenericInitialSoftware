@@ -50,7 +50,10 @@
 			<a href="/Cadastros/Cadastros.html">Cadastro de Trabalhadores</a>
 		</li>
 		<li>
-			<a href="/Listagens/ListagemDeTrabalhadores.html">Buscas na Base de Dados</a>
+			<a href="/Listagens/ListagemDeTrabalhadores.html">Listagens</a>
+		</li>
+		<li>
+			<a href="/Buscas/Buscas.html">Buscas na Base de Dados</a>
 		</li>
 	</ul>
 </span>
@@ -141,7 +144,7 @@
  			var dados = jQuery.parseJSON(data);
  			var text = "";
  			for(var i = 0; i < dados.length; i++){
- 				text = text + '<br><p>Nome:'+dados[i].Nome+'<br>dataDeNasc:'+dados[i].DataDeNasc+'<br>CPF:'+dados[i].CPF+'<br>PIS:'+dados[i].PIS+'<br>Profissão de Registro:'+dados[i].ProfissaoDeRegistro+'<br>Endereço:'+dados[i].Endereco+'<br>Email:'+dados[i].Email+'<br>Data de Registro:'+dados[i].DataDeRegistro;
+ 				text = text + '<br><p>Nome:'+dados[i].Nome+'<br>dataDeNasc:'+dados[i].DataDeNasc+'<br>CPF:'+dados[i].CPF+'<br>PIS:'+dados[i].PIS+'<br>Profissão de Registro:'+dados[i].ProfissaoDeRegistro+'<br>Endereço:'+dados[i].Endereco+'<br>Email:'+dados[i].Email+'<br>Data de Registro:'+dados[i].DataDeRegistro+'</p>';
  			}
  			$('#jsonGeral').html(text);
  		})
@@ -152,7 +155,7 @@
  			var dados = jQuery.parseJSON(data);
  			var text = "";
  			for(var i = 0; i < dados.length; i++){
- 				text = text + '<br><p>Nome:'+dados[i].nome+'<br>dataDeNasc:'+dados[i].dataDeNascimento+'<br>CPF:'+dados[i].cpf+'<br>PIS:'+dados[i].pis+'<br>deficiência:'+dados[i].deficiencia+'<br>nome do pai:'+dados[i].nomeDoPai+'<br>nome da mãe:'+dados[i].nomeDaMae+'<br>RG:'+dados[i].rg+'<br>CTPS:'+dados[i].ctps+'<br>Telfone:'+dados[i].telefoneDoProfissional+'<br>Email:'+dados[i].emailDoProfissional;
+ 				text = text + '<br><p>Nome:'+dados[i].nome+'<br>dataDeNasc:'+dados[i].dataDeNascimento+'<br>CPF:'+dados[i].cpf+'<br>PIS:'+dados[i].pis+'<br>deficiência:'+dados[i].deficiencia+'<br>nome do pai:'+dados[i].nomeDoPai+'<br>nome da mãe:'+dados[i].nomeDaMae+'<br>RG:'+dados[i].rg+'<br>CTPS:'+dados[i].ctps+'<br>Telfone:'+dados[i].telefoneDoProfissional+'<br>Email:'+dados[i].emailDoProfissional+'</p>';
  			}
  			$('#jsonGeralExterno').html(text);
  		})	
@@ -163,7 +166,7 @@
  			var dados = jQuery.parseJSON(data);
  			var text = "";
  			for(var i = 0; i < dados.length; i++){
- 				text = text + '<br><p>Razao Social:'+dados[i].razaoSocial+'<br>Endereco:'+dados[i].endereco+'<br>Ramo de Atividade:'+dados[i].ramoDeAtividade+'<br>C.N.A.E:'+dados[i].cnae+'<br>Grau de Risco:'+dados[i].grauDeRisco+'<br>nroDeTrabalhadores:'+dados[i].nroDeTrabalhadores+'<br>BR/PDH:'+dados[i].brPdh+'<br>C.N.P.J/C.G.C:'+dados[i].cnpjCgc+'<br>Horario de Trabalho:'+dados[i].horarioDeTrabalho+'<br>Responsável Legal:'+dados[i].responsavelLegal+'<br>PIS/PASEP/CI:'+dados[i].pisPasepCi+'<br>Telefone:'+dados[i].telefone+'<br>Email:'+dados[i].email+'<br>Data do Cadastro:'+dados[i].dataDoCadastro+'<br>Data do Contrato:'+dados[i].dataDoContrato+'<br>Tipo de Cobrança:'+dados[i].tipoDeCobranca;
+ 				text = text + '<br><p>Razao Social:'+dados[i].razaoSocial+'<br>Endereco:'+dados[i].endereco+'<br>Ramo de Atividade:'+dados[i].ramoDeAtividade+'<br>C.N.A.E:'+dados[i].cnae+'<br>Grau de Risco:'+dados[i].grauDeRisco+'<br>nroDeTrabalhadores:'+dados[i].nroDeTrabalhadores+'<br>BR/PDH:'+dados[i].brPdh+'<br>C.N.P.J/C.G.C:'+dados[i].cnpjCgc+'<br>Horario de Trabalho:'+dados[i].horarioDeTrabalho+'<br>Responsável Legal:'+dados[i].responsavelLegal+'<br>PIS/PASEP/CI:'+dados[i].pisPasepCi+'<br>Telefone:'+dados[i].telefone+'<br>Email:'+dados[i].email+'<br>Data do Cadastro:'+dados[i].dataDoCadastro+'<br>Data do Contrato:'+dados[i].dataDoContrato+'<br>Tipo de Cobrança:'+dados[i].tipoDeCobranca+'</p>';
  			}
  			$('#jsonGeralEmpresaCliente').html(text);
  		})	

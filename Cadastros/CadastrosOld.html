@@ -1,0 +1,465 @@
+<html>
+
+<head>
+	<title>Cadastros</title>
+
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <!--Local-->
+ 
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/resources/js/bootstrap.min.js"></script>
+
+    <style media="screen" type="text/css">	
+     	.menuAlto ul {
+    		list-style-type: none;
+    		margin-top: 10px;
+		    overflow: hidden;
+		    background-color: #333;
+		}
+		.menuAlto li {
+		    float: left;
+		}
+		.menuAlto li a {
+		    display: block;
+		    color: white;
+		    text-align: center;
+		    padding: 14px 16px;
+		    text-decoration: none;
+		}
+		.menuAlto li a:hover {
+		    background-color: #111;
+		    color:white;
+		}
+	</style>
+
+</head>
+
+
+<body>
+
+<span class="menuAlto">
+	<ul>
+		<li>
+			<a href="/index.html">Home</a>
+		</li>
+		<li>
+			<a href="/Cadastros/Cadastros.html">Cadastro de Trabalhadores</a>
+		</li>
+		<li>
+			<a href="/Listagens/ListagemDeTrabalhadores.html">Listagens</a>
+		</li>
+		<li>
+			<a href="/Buscas/Buscas.html">Buscas na Base de Dados</a>
+		</li>
+	</ul>
+</span>
+
+
+<p style="border:solid 1px black; 
+		  background-color:white; 
+		  margin-left:10px; 
+		  margin-right:10px;
+		  margin-top:10px;
+		  text-align:center;
+		  font-size: 24px;">
+		  <b>Modelo de Cadastros</b>
+</p>
+
+<div class= "container-fluid" style="border:solid 1px black; margin:10px 10px 10px 10px">
+	<div class="paragrafo1" style="margin:0px 0 0 10px">
+		<h3><b>Cadastro Clínica Matriz:</b></h3>
+		<div class="row" style="margin-bottom:5px; margin-top:20px;">
+			<div class="col-md-6">
+				<input id="nomeClinica" type="text" placeholder=" Nome da Clínica" style="width:70%; float:right;">
+				<span style="float:right;"><b>Nome da Clínica Matriz:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="cnpj" type="text" placeholder=" CNPJ" style="width:70%; float:right;">
+				<span style="float:right;"><b>CNPJ:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="endereço" type="text" placeholder=" Nome da Rua, nro bairro" style="width:70%; float:right;">
+				<span style="float:right;"><b>Endereço:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="cep" type="text" placeholder=" XX.XXX-XXX - Cidade - UF" style="width:70%; float:right;">
+				<span style="float:right;"><b>Cep:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="tel" type="text" placeholder=" (XX) XXXX-XXXX" style="width:70%; float:right;">
+				<span style="float:right;"><b>Tel:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="cel" type="text" placeholder=" (XX) XXXXX-XXXX" style="width:70%; float:right;">
+				<span style="float:right;"><b>Cel:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:15px;">
+			<div class="col-md-6">
+				<input id="email" type="text" placeholder=" Email" style="width:70%; float:right;">
+				<span style="float:right;"><b>Email:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Cadastro de Profissionais-->
+<div class= "container-fluid" style="border:solid 1px black; margin:0 10px 50px 10px">
+	<div class="paragrafo1" style="margin:0px 0 15px 10px">
+		<h3><b>Cadastro de profissionais:</b></h3>
+		<div class="row" style="margin-top:15px;margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="nomeDoProfissional" type="text" placeholder=" Nome do profissional a cadastrar" style="width:70%; float:right;">
+				<span style="float:right;"><b>Nome:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="dataDeNascimento" type="text" placeholder=" XX/XX/XXXX" style="width:70%; float:right;">
+				<span style="float:right;"><b>DATA DE NASC:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="cpf" type="text" placeholder=" XXX.XXX.XXX-X" style="width:70%; float:right;">
+				<span style="float:right;"><b>cpf:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="pis" type="text" placeholder=" pis" style="width:70%; float:right;">
+				<span style="float:right;"><b>PIS:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="profissaoDeRegistro" type="text" placeholder=" Profissão de Registro" style="width:70%; float:right;">
+				<span style="float:right;"><b>Profissão de Registro:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="enderecoDoProfissional" type="text" placeholder=" Nome da Rua, nro bairro" style="width:70%; float:right;">
+				<span style="float:right;"><b>Endereço:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="telefoneDoProfissional" type="text" placeholder=" XXXX-XXXX" style="width:70%; float:right;">
+				<span style="float:right;"><b>Tel:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="emailDoProfissional" type="text" placeholder=" email" style="width:70%; float:right;">
+				<span style="float:right;"><b>Email:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="dataDeRegistro" type="text" placeholder=" Data de registro" style="width:70%; float:right;">
+				<span style="float:right;"><b>Data de Registro:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:15px;">
+			<div class="col-md-6">
+				<div style="width:70%; float:right;">
+					<input class="center-block" type="submit" value="Enviar" onClick="cadastraProfissional()">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Cadastro de trabalhadores que nao sejam da empresa - Parte 3 do Modulo 1-->
+<div class= "container-fluid" style="border:solid 1px black; margin:0 10px 50px 10px">
+	<div class="paragrafo1" style="margin:0px 0 15px 10px">
+		<h3><b>Cadastro de profissionais externos:</b></h3>
+		<div class="row" style="margin-top:15px;margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="nomeDoProfissionalExterno" type="text" placeholder=" Nome do profissional a cadastrar" style="width:70%; float:right;">
+				<span style="float:right;"><b>Nome:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="sexoDoTrabalhadorExterno" type="text" placeholder=" F/M" style="width:70%; float:right;">
+				<span style="float:right;"><b>Sexo:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="dataDeNascimentoExterno" type="text" placeholder=" XX/XX/XXXX" style="width:70%; float:right;">
+				<span style="float:right;"><b>DATA DE NASC:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="deficienciaExterno" type="text" style="width:70%; float:right;">
+				<span style="float:right;"><b>Deficiência:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="cpfExterno" type="text" placeholder=" XXX.XXX.XXX-X" style="width:70%; float:right;">
+				<span style="float:right;"><b>cpf:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="rgExterno" type="text" placeholder=" XXX.XXX.XXX-X" style="width:70%; float:right;">
+				<span style="float:right;"><b>RG:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="ctpsExterno" type="text" placeholder=" XXXXX-XX" style="width:70%; float:right;">
+				<span style="float:right;"><b>CTPS:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="pisExterno" type="text" placeholder=" pis" style="width:70%; float:right;">
+				<span style="float:right;"><b>PIS:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="nomeDaMaeExterno" type="text" placeholder=" Nome da mãe" style="width:70%; float:right;">
+				<span style="float:right;"><b>Nome da mãe:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="nomeDoPaiExterno" type="text" placeholder=" Nome do pai" style="width:70%; float:right;">
+				<span style="float:right;"><b>Nome do pai:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="telefoneDoProfissionalExterno" type="text" placeholder=" XXXX-XXXX" style="width:70%; float:right;">
+				<span style="float:right;"><b>Tel:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="emailDoProfissionalExterno" type="text" placeholder=" email" style="width:70%; float:right;">
+				<span style="float:right;"><b>Email:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:15px;">
+			<div class="col-md-6">
+				<div style="width:70%; float:right;">
+					<input class="center-block" type="submit" value="Enviar" onClick="cadastraProfissionalExterno()">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Parte 2 do modulo 1-->
+<div class= "container-fluid" style="border:solid 1px black; margin:0 10px 50px 10px">
+	<div class="paragrafo1" style="margin:0px 0 15px 10px">
+		<h3><b>Cadastro de Empresas Clientes:</b></h3>
+		<div class="row" style="margin-top:15px;margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="razaoSocial" type="text" placeholder=" Razão Social" style="width:70%; float:right;">
+				<span style="float:right;"><b>Razão Social:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="enderecoEmpresaCliente" type="text" placeholder="Endereço" style="width:70%; float:right;">
+				<span style="float:right;"><b>Endereço:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="ramoDeAtividade" type="text" placeholder=" Ramo de Atividade" style="width:70%; float:right;">
+				<span style="float:right;"><b>Ramo de Atividade::</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="cnae" type="text" placeholder=" C.N.A.E." style="width:70%; float:right;">
+				<span style="float:right;"><b>C.N.A.E:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="grauDeRisco" type="text" placeholder=" Grau de Risco" style="width:70%; float:right;">
+				<span style="float:right;"><b>Grau de Risco:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="nroDeTrabalhadores" type="text" placeholder=" Número de Trabalhadores" style="width:70%; float:right;">
+				<span style="float:right;"><b>Nro de Trabalhadores:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="brPdh" type="text" placeholder=" BR/PDH" style="width:70%; float:right;">
+				<span style="float:right;"><b>BR/PDH:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="cnpjCgc" type="text" placeholder=" C.N.P.J/C.G.C" style="width:70%; float:right;">
+				<span style="float:right;"><b>C.N.P.J/C.G.C:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="horarioDeTrabalho" type="text" placeholder=" Horário de Trabalho" style="width:70%; float:right;">
+				<span style="float:right;"><b>Horário de Trabalho:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="responsavelLegal" type="text" placeholder=" ResponsávelLegal" style="width:70%; float:right;">
+				<span style="float:right;"><b>Responsável Legal:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="pisPasepCi" type="text" placeholder=" PIS/PASEP/CI" style="width:70%; float:right;">
+				<span style="float:right;"><b>PIS/PASEP/CI:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="telefoneEmpresaCliente" type="text" placeholder=" Telefone" style="width:70%; float:right;">
+				<span style="float:right;"><b>Telefone:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="emailDaEmpresaCliente" type="text" placeholder=" Email" style="width:70%; float:right;">
+				<span style="float:right;"><b>Email:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="dataDoCadastro" type="text" placeholder=" Data do Cadastro" style="width:70%; float:right;">
+				<span style="float:right;"><b>Data do Cadastro:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="dataDoContrato" type="text" placeholder=" Data do Contrato" style="width:70%; float:right;">
+				<span style="float:right;"><b>Data do Contrato:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:5px;">
+			<div class="col-md-6">
+				<input id="tipoDeCobranca" type="text" placeholder=" Tipo de Cobrança" style="width:70%; float:right;">
+				<span style="float:right;"><b>Tipo de Cobrança:</b></span><!-- Colocado em pilha pelo float-->
+			</div>
+		</div>
+		<div class="row" style="margin-bottom:15px;">
+			<div class="col-md-6">
+				<div style="width:70%; float:right;">
+					<input class="center-block" type="submit" value="Enviar" onClick="cadastraEmpresaCliente()">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	function cadastraProfissional(){
+		var nome = $('#nomeDoProfissional').val();
+		var dataDeNascimento = $('#dataDeNascimento').val();
+		var cpf = $('#cpf').val();
+		var pis = $('#pis').val();
+		var profissaoDeRegistro = $('#profissaoDeRegistro').val();
+		var enderecoDoProfissional = $('#enderecoDoProfissional').val();
+		var telefoneDoProfissional = $('#telefoneDoProfissional').val();
+		var emailDoProfissional = $('#emailDoProfissional').val();
+		var dataDeRegistro = $('#dataDeRegistro').val();
+		$.post('Cadastros.php',{nome:nome, dataDeNascimento:dataDeNascimento, cpf: cpf,
+								pis: pis, profissaoDeRegistro:profissaoDeRegistro,
+								enderecoDoProfissional:enderecoDoProfissional, 
+								telefoneDoProfissional:telefoneDoProfissional,
+								emailDoProfissional:emailDoProfissional,
+								dataDeRegistro:dataDeRegistro},function(data){
+ 		})
+ 		alert("Profissional Cadastrado");
+	}
+
+	function cadastraProfissionalExterno(){
+		var nome = $('#nomeDoProfissionalExterno').val();
+		var sexo = $('#sexoDoTrabalhadorExterno').val();
+		var dataDeNascimento = $('#dataDeNascimentoExterno').val();
+		var deficiencia = $('#deficienciaExterno').val();
+		var cpf = $('#cpfExterno').val();
+		var rg = $('#rgExterno').val();
+		var ctps = $('#ctpsExterno').val();
+		var pis = $('#pisExterno').val();
+		var nomeDoPai = $('#nomeDoPaiExterno').val();
+		var nomeDaMae = $('#nomeDaMaeExterno').val();
+		var telefoneDoProfissional = $('#telefoneDoProfissionalExterno').val();
+		var emailDoProfissional = $('#emailDoProfissionalExterno').val();
+		$.post('CadastrosTrabalhadoresExternos.php',
+				{nome:nome, sexo:sexo, dataDeNascimento:dataDeNascimento, 
+				deficiencia:deficiencia, cpf: cpf, rg:rg, ctps:ctps,
+				pis: pis, nomeDoPai:nomeDoPai, nomeDaMae:nomeDaMae, 
+				telefoneDoProfissional:telefoneDoProfissional,
+				emailDoProfissional:emailDoProfissional},
+				function(data){
+ 		})
+ 		alert("Profissional Externo Cadastrado");
+	}
+
+	function cadastraEmpresaCliente(){
+		var razaoSocial = $('#razaoSocial').val();
+		var enderecoEmpresaCliente = $('#enderecoEmpresaCliente').val();
+		var ramoDeAtividade = $('#ramoDeAtividade').val();
+		var cnae = $('#cnae').val();
+		var grauDeRisco = $('#grauDeRisco').val();
+		var nroDeTrabalhadores = $('#nroDeTrabalhadores').val();
+		var brPdh = $('#brPdh').val();
+		var cnpjCgc = $('#cnpjCgc').val();
+		var horarioDeTrabalho = $('#horarioDeTrabalho').val();
+		var responsavelLegal = $('#responsavelLegal').val();
+		var pisPasepCi = $('#pisPasepCi').val();
+		var telefoneEmpresaCliente = $('#telefoneEmpresaCliente').val();
+		var emailDaEmpresaCliente = $('#emailDaEmpresaCliente').val();
+		var dataDoCadastro = $('#dataDoCadastro').val();
+		var dataDoContrato = $('#dataDoContrato').val();
+		var tipoDeCobranca = $('#tipoDeCobranca').val();
+		$.post('CadastroEmpresaCliente.php',
+				{razaoSocial:razaoSocial, enderecoEmpresaCliente:enderecoEmpresaCliente, 
+					ramoDeAtividade:ramoDeAtividade, cnae:cnae, 
+				grauDeRisco:grauDeRisco, nroDeTrabalhadores: nroDeTrabalhadores, 
+				brPdh:brPdh, cnpjCgc:cnpjCgc,
+				horarioDeTrabalho: horarioDeTrabalho, responsavelLegal:responsavelLegal, 
+				pisPasepCi:pisPasepCi, telefoneEmpresaCliente:telefoneEmpresaCliente, 
+				emailDaEmpresaCliente:emailDaEmpresaCliente, dataDoCadastro:dataDoCadastro,
+				dataDoContrato:dataDoContrato, tipoDeCobranca:tipoDeCobranca},
+				function(data){
+ 		})
+ 		alert("Empresa Cliente Cadastrada");
+	}
+
+</script>

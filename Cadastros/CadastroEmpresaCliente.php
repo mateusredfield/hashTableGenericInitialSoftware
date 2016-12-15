@@ -1,5 +1,7 @@
 <?php
 
+require_once(__DIR__.'/../resources/support/variables.php');
+
 //Dados do servidor local
 //$servername = "localhost";
 //$username = "root";
@@ -7,10 +9,10 @@
 //$dbname = "dbTeste";
 
 //Dados servidor em producao
-$servername = "fdb3.leadhoster.com";
-$username = "786484_mateus";
-$password = "MDS_cbattle2015";
-$dbname = "786484_mateus";
+// $servername = "fdb3.leadhoster.com";
+// $username = "786484_mateus";
+// $password = "MDS_cbattle2015";
+// $dbname = "786484_mateus";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
