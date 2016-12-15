@@ -1,0 +1,188 @@
+<html>
+
+<head>
+	<title>Buscas</title>
+
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/css/style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/resources/js/bootstrap.min.js"></script>
+
+    <style media="screen" type="text/css">	
+     	.menuAlto ul {
+    		list-style-type: none;
+    		margin-top: 10px;
+		    overflow: hidden;
+		    background-color: #333;
+		}
+		.menuAlto li {
+		    float: left;
+		}
+		.menuAlto li a {
+		    display: block;
+		    color: white;
+		    text-align: center;
+		    padding: 14px 16px;
+		    text-decoration: none;
+		}
+		.menuAlto li a:hover {
+		    background-color: #111;
+		    color:white;
+		}
+	</style>
+
+</head>
+
+
+<body>
+
+<span class="menuAlto">
+	<ul>
+		<li>
+			<a href="/index.html">Home</a>
+		</li>
+		<li>
+			<a href="/Cadastros/Cadastros.html">Cadastro de Trabalhadores</a>
+		</li>
+		<li>
+			<a href="/Listagens/ListagemDeTrabalhadores.html">Listagens</a>
+		</li>
+		<li>
+			<a href="/Buscas/Buscas.html">Buscas na Base de Dados</a>
+		</li>
+	</ul>
+</span>
+
+
+<p style="border:solid 1px black; 
+		  background-color:white; 
+		  margin-left:10px; 
+		  margin-right:10px;
+		  margin-top:10px;
+		  text-align:center;
+		  font-size: 24px;">
+		  <b>Buscas</b>
+</p>
+
+<!-- Busca por trabalhadores internos e div com hide-->
+<div class= "container-fluid" style="border:solid 1px black; margin:10px 10px 10px 10px">
+	<div class="paragrafo1" style="margin:0px 0 0 10px">
+		<h3><b>Buscas por Trabalhadores Internos</b></h3>
+		<div class="row" style="margin-bottom:15px; margin-top:20px;">
+			<div class="col-md-6">
+				<span style="float:left;margin-top:1px"><b>CPF:</b></span><!-- Colocado em pilha pelo float-->
+				<input id="cpfBusca" type="text" placeholder=" XXX.XXX.XXX-XX" style="width:60%; float:left;">
+			</div>
+		</div>
+	</div>
+	<div class="row" style="margin-bottom:15px;">
+			<div class="col-md-6">
+				<div style="width:70%; float:left;">
+					<input class="center-block" type="submit" value="Enviar" onClick="buscaPorTrabalhadores()">
+				</div>
+			</div>
+	</div>
+</div>
+<!-- Campo hide/show pelo javascript-->
+<div class= "container-fluid" id="resultadoBuscaTrabalhadoresContanier" style="border:solid 1px black; margin:10px 10px 10px 10px">
+	<div class="paragrafo1" style="margin:0px 0 0 10px">
+		<!-- <h3><b>Resultados</b></h3> -->
+		<div class="row"> <!-- style="margin-bottom:15px; margin-top:20px;"> -->
+			<div class="col-md-6">
+				<div id="resultadoBuscaTrabalhadoresDiv" style="margin:0px 0 20px 0px">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Modulo Trabalhadores Externos-->
+<div class= "container-fluid" style="border:solid 1px black; margin:10px 10px 10px 10px">
+	<div class="paragrafo1" style="margin:0px 0 0 10px">
+		<h3><b>Buscas por Trabalhadores Externos</b></h3>
+		<div class="row" style="margin-bottom:15px; margin-top:20px;">
+			<div class="col-md-6">
+				<span style="float:left;margin-top:1px"><b>CPF:</b></span><!-- Colocado em pilha pelo float-->
+				<input id="cpfBuscaTrabalhadoresExternos" type="text" placeholder=" XXX.XXX.XXX-XX" style="width:60%; float:left;">
+			</div>
+		</div>
+	</div>
+	<div class="row" style="margin-bottom:15px;">
+			<div class="col-md-6">
+				<div style="width:70%; float:left;">
+					<input class="center-block" type="submit" value="Enviar" onClick="buscaPorTrabalhadoresExternos()">
+				</div>
+			</div>
+	</div>
+</div>
+<!-- Campo hide/show pelo javascript-->
+<div class= "container-fluid" id="resultadoBuscaTrabalhadoresExternosContanier" style="border:solid 1px black; margin:10px 10px 10px 10px">
+	<div class="paragrafo1" style="margin:0px 0 0 10px">
+		<div class="row"> <!-- style="margin-bottom:15px; margin-top:20px;"> -->
+			<div class="col-md-6">
+				<div id="resultadoBuscaTrabalhadoresExternosDiv" style="margin:0px 0 20px 0px">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Espacamento-->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+	//Inicializacoes
+	$(document).ready(function() {
+    	$('#resultadoBuscaTrabalhadoresContanier').hide();
+    	$('#resultadoBuscaTrabalhadoresExternosContanier').hide();
+	});
+
+	function buscaPorTrabalhadores(){
+		var cpf = $('#cpfBusca').val();
+		$.post('BuscaPorTrabalhadores.php',{cpf: cpf},function(data){
+			var dados = jQuery.parseJSON(data);
+ 			var text = "";
+ 			//O if escolhe o que vai no texto - se tem dados coloca, se nao nao, mas talvez nao precise de for se
+ 			//soh tiver um trabalhador com o dado cpf
+ 			if(dados[0] !== "No Elements"){
+	 			for(var i = 0; i < dados.length; i++){
+	 				text = text + 'Nome:'+dados[i].Nome+'<br>dataDeNasc:'+dados[i].DataDeNasc+'<br>CPF:'+dados[i].CPF+'<br>PIS:'+dados[i].PIS+'<br>Profissão de Registro:'+dados[i].ProfissaoDeRegistro+'<br>Endereço:'+dados[i].Endereco+'<br>Email:'+dados[i].Email+'<br>Data de Registro:'+dados[i].DataDeRegistro;
+	 			}
+	 		}else{
+	 			text = "<h4>Não Foram encontrados trabalhadores com esse CPF</h4>"
+	 		}
+	 		$('#resultadoBuscaTrabalhadoresDiv').html(text);
+	 		$('#resultadoBuscaTrabalhadoresContanier').show();
+	 		//Parei Aqui - fazer as outras duas buscas/ ou mascaras, e tudo isso pros otros 
+	 		//dois casos.
+ 		})
+	}
+	function buscaPorTrabalhadoresExternos(){
+		var cpf = $('#cpfBuscaTrabalhadoresExternos').val();
+		$.post('BuscaPorTrabalhadoresExternos.php',{cpf: cpf},function(data){
+			var dados = jQuery.parseJSON(data);
+ 			var text = "";
+ 			//O if escolhe o que vai no texto - se tem dados coloca, se nao nao, mas talvez nao precise de for se
+ 			//soh tiver um trabalhador com o dado cpf
+ 			if(dados[0] !== "No Elements"){
+	 			for(var i = 0; i < dados.length; i++){
+	 				text = text + '<br><p>Nome:'+dados[i].nome+'<br>dataDeNasc:'+dados[i].dataDeNascimento+'<br>CPF:'+dados[i].cpf+'<br>PIS:'+dados[i].pis+'<br>deficiência:'+dados[i].deficiencia+'<br>nome do pai:'+dados[i].nomeDoPai+'<br>nome da mãe:'+dados[i].nomeDaMae+'<br>RG:'+dados[i].rg+'<br>CTPS:'+dados[i].ctps+'<br>Telfone:'+dados[i].telefoneDoProfissional+'<br>Email:'+dados[i].emailDoProfissional+'</p>';
+	 			}
+	 		}else{
+	 			text = "<h4>Não Foram encontrados trabalhadores com esse CPF</h4>"
+	 		}
+	 		$('#resultadoBuscaTrabalhadoresExternosDiv').html(text);
+	 		$('#resultadoBuscaTrabalhadoresExternosContanier').show();
+ 		})
+	}
+
+</script>
