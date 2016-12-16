@@ -131,6 +131,36 @@
 		</div>
 	</div>
 </div>
+<!--Modulo Empresas Clientes-->
+<div class= "container-fluid" style="border:solid 1px black; margin:10px 10px 10px 10px">
+	<div class="paragrafo1" style="margin:0px 0 0 10px">
+		<h3><b>Buscas por Trabalhadores Externos</b></h3>
+		<div class="row" style="margin-bottom:15px; margin-top:20px;">
+			<div class="col-md-6">
+				<span style="float:left;margin-top:1px"><b>CNPJ/CGC:</b></span><!-- Colocado em pilha pelo float-->
+				<input id="cnpjBuscaEmpresasClientes" type="text" placeholder=" cnpj ou cgc" style="width:60%; float:left;">
+			</div>
+		</div>
+	</div>
+	<div class="row" style="margin-bottom:15px;">
+			<div class="col-md-6">
+				<div style="width:70%; float:left;">
+					<input class="center-block" type="submit" value="Enviar" onClick="buscaPorEmpresasClientes()">
+				</div>
+			</div>
+	</div>
+</div>
+<!-- Campo hide/show pelo javascript-->
+<div class= "container-fluid" id="resultadoBuscaEmpresasClientesContanier" style="border:solid 1px black; margin:10px 10px 10px 10px">
+	<div class="paragrafo1" style="margin:0px 0 0 10px">
+		<div class="row"> <!-- style="margin-bottom:15px; margin-top:20px;"> -->
+			<div class="col-md-6">
+				<div id="resultadoBuscaEmpresasClientesDiv" style="margin:0px 0 20px 0px">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <!-- Espacamento-->
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -144,6 +174,7 @@
 	$(document).ready(function() {
     	$('#resultadoBuscaTrabalhadoresContanier').hide();
     	$('#resultadoBuscaTrabalhadoresExternosContanier').hide();
+    	$('#resultadoBuscaEmpresasClientesContanier').hide();
 	});
 
 	function buscaPorTrabalhadores(){
@@ -184,5 +215,28 @@
 	 		$('#resultadoBuscaTrabalhadoresExternosContanier').show();
  		})
 	}
+	function buscaPorEmpresasClientes(){
+		var cnpj = $('#cnpjBuscaEmpresasClientes').val();//pode ser CNG e por isso tem isso no sql tambem
+		$.post('buscaPorEmpresasClientes.php',{cnpj: cnpj},function(data){
+			var dados = jQuery.parseJSON(data);
+ 			var text = "";
+ 			//O if escolhe o que vai no texto - se tem dados coloca, se nao nao, mas talvez nao precise de for se
+ 			//soh tiver um trabalhador com o dado cpf
+ 			if(dados[0] !== "No Elements"){
+	 			for(var i = 0; i < dados.length; i++){
+	 				text = text + '<br><p>Razao Social:'+dados[i].razaoSocial+'<br>Endereço:'+dados[i].endereco+'<br>Ramo de Atividade:'+dados[i].ramodeDeAtividade+'<br>CNAE:'+dados[i].cnae+'<br>Grau de Risco:'+dados[i].grauDeRisco+'<br>Nro de Trabalhadores:'+dados[i].nroDeTrabalhadores+'<br>BR PDH:'+dados[i].brPdh+'<br>CNPJ/CGC:'+dados[i].cnpjCgc+'<br>Horário de Trabalho:'+dados[i].horarioDeTrabalho+'<br>Responsável Legal:'+dados[i].responsavelLegal+'<br>Pis Pasep Ci:'+dados[i].pisPasepCi+'<br>Telefone:'+dados[i].telefone+'<br>Email:'+dados[i].email+'<br>Data do Cadastro:'+dados[i].dataDoCadastro+'<br>Data do Contrato:'+dados[i].dataDoContrato+'<br>Tipo de Cobrança:'+dados[i].tipoDeCobranca+'</p>';
+	 			}
+	 		}else{
+	 			text = "<h4>Não Foram encontradas Empresas com esse CNPJ/CNAE</h4>"
+	 		}
+	 		$('#resultadoBuscaEmpresasClientesDiv').html(text);
+	 		$('#resultadoBuscaEmpresasClientesContanier').show();
+ 		})
+	}
 
 </script>
+
+
+
+
+
