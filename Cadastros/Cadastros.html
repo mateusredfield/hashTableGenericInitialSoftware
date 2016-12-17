@@ -35,7 +35,7 @@
 		  <b>Modelo de Cadastros</b>
 </p>
 
-<div class= "container-fluid" style="border:solid 1px black; margin:10px 10px 10px 10px">
+<div class= "container-fluid" id = "cadastroClinicaMatrizContainer"style="border:solid 1px black; margin:10px 10px 10px 10px">
 	<div class="paragrafo1" style="margin:25px 0 0 10px">
 		<h3><b>Cadastro Clínica Matriz:</b></h3>
 		<div class="row" style="margin-bottom:5px; margin-top:20px;">
@@ -369,6 +369,8 @@
 	//Falta Opcional callback e loading de sucesso ou falha com base no data
 	//Falta Opcional melhorar mascara do telefone
 	
+
+	$("#cadastroClinicaMatrizContainer").hide();
 	Inputmask.extendDefinitions({
   	'a': {
     validator: "[a-zA-Z ]",
