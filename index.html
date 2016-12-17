@@ -8,34 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/resources/css/style.css" rel="stylesheet">
+    <link href="/resources/support/topMenuConstructor.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="/resources/js/bootstrap.min.js"></script>
     <script src="/resources/support/topMenuConstructor.js"></script>
-     
-    <style media="screen" type="text/css">	
-     	.menuAlto ul {
-    		list-style-type: none;
-    		margin-top: 10px;
-		    overflow: hidden;
-		    background-color: #333;
-		}
-		.menuAlto li {
-		    float: left;
-		}
-		.menuAlto li a {
-		    display: block;
-		    color: white;
-		    text-align: center;
-		    padding: 14px 16px;
-		    text-decoration: none;
-		}
-		.menuAlto li a:hover {
-		    background-color: #111;
-		    color:white;
-		}
-	</style>
+    <script src="/resources/support/commonMethods.js"></script>
 
 </head>
 
@@ -66,7 +44,7 @@
 		<p>Email: contato@pouptemposst.com.br</p>
 	</div>
 </div>
-<div class= "contanier" style="border:solid 1px black; margin:0 10px 10px 10px">
+<div class= "contanier" id="divClinicaMatriz" style="border:solid 1px black; margin:0 10px 10px 10px">
 	<div class="paragrafo1" style="margin:0px 0 0 10px">
 		<h3><b>Cadastro de profissionais:</b></h3>
 		<p><b>Nome:</b></p>
@@ -85,86 +63,9 @@
 </body>
 </html>
 
-<!-- <div class="container">
-    <div class="page-header">
-        <div class="row">
-            <div class="col-xs-1">
-                <div class="left-box">
-                    <div class="turn-left">left</div>
-                </div>
-            </div>
-            <div class="col-xs-10">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="top-box">top</div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="content-box">content</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-1">
-                <div class="right-box">
-                    <div class="turn-right">right</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<footer class="footer">
-    <div class="container">
-        <p>sticky footer</p>
-    </div>
-</footer>
+<script type="text/javascript">
+  $(document).ready(function() {
 
-
-
-
-<div id=wrap style="
-    width:100px; 
-    height: 50px;">
-    <div id=rectangle style="
-        width:200px; 
-        height: 100px; 
-        translate: scale(0.5); 
-        transform-origin: 0 0; 
-        margin: 10px; 
-        padding: 20px;
-    ">
-        Hello
-    </div>
-</div>  
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-<div> <br><br>Essa porra devia ter a hairline<br><hr><br></div>
-
-
-
-
-
-</body>
-</html>
-
-div {
-  border: 1px solid red;
-}
- 
-.hairlines div {
-  border-width: 10px;
-}
-
--->
+      $('#divClinicaMatriz').hide();
+  });
+</script>

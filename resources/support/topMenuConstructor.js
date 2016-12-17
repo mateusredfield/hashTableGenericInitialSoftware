@@ -1,8 +1,9 @@
 //Header to construct the top menu
 $(document).ready(function() {
+        
         var topMenu = ''+
-			'<span class="menuAlto">'+
-				'<ul>'+
+			'<div class="menuTop">'+
+				'<ul >'+
 					'<li>'+
 						'<a href="/index.html">Home</a>'+
 					'</li>'+
@@ -12,10 +13,15 @@ $(document).ready(function() {
 					'<li>'+
 						'<a href="/Listagens/ListagemDeTrabalhadores.html">Listagens</a>'+
 					'</li>'+
-					'<li>'+
-						'<a href="/Buscas/Buscas.html">Buscas na Base de Dados</a>'+
-					'</li>'+
+					'<li class="dropdownTop">'+
+				    '<a href="#" class="dropbtnTop">Buscas</a>'+
+				    '<div class="dropdownTop-content">'+
+				      '<a href="/Buscas/Buscas.html?tipoDeBusca=1">Trabalhadores Internos</a>'+
+				      '<a href="/Buscas/Buscas.html?tipoDeBusca=2">Trabalhadores Externos</a>'+
+				      '<a href="/Buscas/Buscas.html?tipoDeBusca=3">Empresas Clientes</a>'+
+				    '</div>'+
+				  '</li>'+
 				'</ul>'+
-			'</span>';
+			'</div>';
 $('body').prepend(topMenu);
 });

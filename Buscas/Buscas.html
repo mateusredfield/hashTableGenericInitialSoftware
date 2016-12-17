@@ -8,35 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/resources/css/style.css" rel="stylesheet">
+    <link href="/resources/support/topMenuConstructor.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="/resources/js/bootstrap.min.js"></script>
     <script src="/resources/support/topMenuConstructor.js"></script>
+    <script src="/resources/support/commonMethods.js"></script>
 
-    <style media="screen" type="text/css">	
-     	.menuAlto ul {
-    		list-style-type: none;
-    		margin-top: 10px;
-		    overflow: hidden;
-		    background-color: #333;
-		}
-		.menuAlto li {
-		    float: left;
-		}
-		.menuAlto li a {
-		    display: block;
-		    color: white;
-		    text-align: center;
-		    padding: 14px 16px;
-		    text-decoration: none;
-		}
-		.menuAlto li a:hover {
-		    background-color: #111;
-		    color:white;
-		}
-	</style>
 </head>
 
 <body>
@@ -52,13 +31,13 @@
 </p>
 
 <!-- Busca por trabalhadores internos e div com hide-->
-<div class= "container-fluid" style="border:solid 1px black; margin:10px 10px 10px 10px">
+<div class= "container-fluid" id ="buscaTrabalhadoresContanier" style="border:solid 1px black; margin:10px 10px 10px 10px">
 	<div class="paragrafo1" style="margin:0px 0 0 10px">
 		<h3><b>Buscas por Trabalhadores Internos</b></h3>
 		<div class="row" style="margin-bottom:15px; margin-top:20px;">
 			<div class="col-md-6">
 				<span style="float:left;margin-top:1px"><b>CPF:</b></span><!-- Colocado em pilha pelo float-->
-				<input id="cpfBusca" type="text" placeholder=" XXX.XXX.XXX-XX" style="width:60%; float:left;">
+				<input id="cpfBusca" type="text" placeholder=" XXX.XXX.XXX-XX" style="width:60%; float:left;position: relative !important; z-index: 0 !important;">
 			</div>
 		</div>
 	</div>
@@ -84,7 +63,7 @@
 </div>
 
 <!--Modulo Trabalhadores Externos-->
-<div class= "container-fluid" style="border:solid 1px black; margin:10px 10px 10px 10px">
+<div class= "container-fluid" id ="buscaTrabalhadoresExternosContanier"style="border:solid 1px black; margin:10px 10px 10px 10px">
 	<div class="paragrafo1" style="margin:0px 0 0 10px">
 		<h3><b>Buscas por Trabalhadores Externos</b></h3>
 		<div class="row" style="margin-bottom:15px; margin-top:20px;">
@@ -114,7 +93,7 @@
 	</div>
 </div>
 <!--Modulo Empresas Clientes-->
-<div class= "container-fluid" style="border:solid 1px black; margin:10px 10px 10px 10px">
+<div class= "container-fluid" id ="buscaEmpresasClientesContanier" style="border:solid 1px black; margin:10px 10px 10px 10px">
 	<div class="paragrafo1" style="margin:0px 0 0 10px">
 		<h3><b>Buscas por Trabalhadores Externos</b></h3>
 		<div class="row" style="margin-bottom:15px; margin-top:20px;">
@@ -154,9 +133,27 @@
 
 	//Inicializacoes
 	$(document).ready(function() {
+
+    	var tipoDeBusca = getUrlVars().tipoDeBusca;
+    	$('#buscaTrabalhadoresContanier').hide();
     	$('#resultadoBuscaTrabalhadoresContanier').hide();
+    	$('#buscaTrabalhadoresExternosContanier').hide();
     	$('#resultadoBuscaTrabalhadoresExternosContanier').hide();
+    	$('#buscaEmpresasClientesContanier').hide();
     	$('#resultadoBuscaEmpresasClientesContanier').hide();
+    	switch(parseInt(tipoDeBusca)) {
+    		case 1:
+        	$('#buscaTrabalhadoresContanier').show();
+        break;
+    	case 2:
+        	$('#buscaTrabalhadoresExternosContanier').show();
+        break;
+        case 3:
+        	$('#buscaEmpresasClientesContanier').show();
+        	break;
+    	default:
+        	$('body').append("<h3>Escolha um tipo de busca</h3>");
+		}
 	});
 
 	function buscaPorTrabalhadores(){
