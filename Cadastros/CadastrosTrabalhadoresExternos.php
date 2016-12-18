@@ -35,10 +35,12 @@ $nomeDaMae = $_POST['nomeDaMae'];
 $telefoneDoProfissional = $_POST['telefoneDoProfissional'];
 $emailDoProfissional = $_POST['emailDoProfissional'];
 
-$sql = "INSERT INTO trabalhadoresExternos 
+$sql = "INSERT INTO trabalhadoresexternos 
 		VALUES (DEFAULT, '$nome','$sexo','$dataDeNascimento','$deficiencia','$cpf','$rg','$ctps','$pis','$nomeDoPai','$nomeDaMae','$telefoneDoProfissional','$emailDoProfissional')";
 
 $result = $conn->query($sql);
+
+
 
 $conn->close();
 

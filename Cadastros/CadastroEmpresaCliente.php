@@ -39,7 +39,7 @@ $dataDoCadastro = $_POST['dataDoCadastro'];
 $dataDoContrato = $_POST['dataDoContrato'];
 $tipoDeCobranca = $_POST['tipoDeCobranca'];
 
-$sql = "INSERT INTO empresasClientes 
+$sql = "INSERT INTO empresasclientes 
 		VALUES (DEFAULT, '$razaoSocial','$enderecoEmpresaCliente','$ramoDeAtividade','$cnae','$grauDeRisco','$nroDeTrabalhadores','$brPdh','$cnpjCgc','$horarioDeTrabalho','$responsavelLegal','$pisPasepCi','$telefoneEmpresaCliente','$emailDaEmpresaCliente','$dataDoCadastro','$dataDoContrato','$tipoDeCobranca')";
 
 $result = $conn->query($sql);

@@ -10,9 +10,6 @@ $(document).ready(function() {
 					'<li>'+
 						'<a href="/Cadastros/Cadastros.html">Cadastro de Trabalhadores</a>'+
 					'</li>'+
-					'<li>'+
-						'<a href="/Listagens/ListagemDeTrabalhadores.html">Listagens</a>'+
-					'</li>'+
 					'<li class="dropdownTop">'+
 				    '<a href="#" class="dropbtnTop">Buscas</a>'+
 				    '<div class="dropdownTop-content">'+
