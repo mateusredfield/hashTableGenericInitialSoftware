@@ -91,7 +91,7 @@
 				<fieldset>
 					<div class="row" style="margin-top:15px;margin-bottom:5px;">
 						<div class="col-md-6">
-							<input id="nomeDoProfissional" type="text" pattern="[a-zA-Z ]{1,40}" required placeholder=" Nome do profissional a cadastrar" style="width:70%; float:right;">
+							<input id="nomeDoProfissional" type="text" pattern="[A-Za-zÀ-ú ç]{1,70}" required placeholder=" Nome do profissional a cadastrar" style="width:70%; float:right;">
 							<span style="float:right;"><b>Nome:</b></span><!-- Colocado em pilha pelo float-->
 						</div>
 					</div>
@@ -127,7 +127,7 @@
 					</div>
 					<div class="row" style="margin-bottom:5px;">
 						<div class="col-md-6">
-							<input id="telefoneDoProfissional" type="text" placeholder="(XX) XXXX-XXXX" pattern="\([0-9]{2}\) [0-9]?[0-9]{4}-[0-9]{4}" required style="width:70%; float:right;">
+							<input id="telefoneDoProfissional" type="text" placeholder="(XX) XXXX-XXXX" pattern="\([0-9]{2}\) [0-9]{4}-[0-9]{4}[0-9]?" required style="width:70%; float:right;">
 							<span style="float:right;"><b>Tel:</b></span><!-- Colocado em pilha pelo float-->
 						</div>
 					</div>
@@ -222,7 +222,7 @@
 			</div>
 			<div class="row" style="margin-bottom:5px;">
 				<div class="col-md-6">
-					<input id="telefoneDoProfissionalExterno" type="text" pattern="\([0-9]{2}\) [0-9]?[0-9]{4}-[0-9]{4}" required placeholder=" XXXX-XXXX" style="width:70%; float:right;">
+					<input id="telefoneDoProfissionalExterno" type="text" pattern="\([0-9]{2}\) [0-9]{4}-[0-9]{4}[0-9]?" required placeholder=" XXXX-XXXX" style="width:70%; float:right;">
 					<span style="float:right;"><b>Tel:</b></span><!-- Colocado em pilha pelo float-->
 				</div>
 			</div>
@@ -250,7 +250,7 @@
 			<h3><b>Cadastro de Empresas Clientes:</b></h3>
 			<div class="row" style="margin-top:15px;margin-bottom:5px;">
 				<div class="col-md-6">
-					<input id="razaoSocial" type="text" pattern="[a-zA-Z ]{1,40}" required placeholder=" Razão Social" style="width:70%; float:right;">
+					<input id="razaoSocial" type="text" pattern="[0-9A-Za-zÀ-ú ç]{1,1000}" required placeholder=" Razão Social" style="width:70%; float:right;">
 					<span style="float:right;"><b>Razão Social:</b></span><!-- Colocado em pilha pelo float-->
 				</div>
 			</div>
@@ -268,7 +268,7 @@
 			</div>
 			<div class="row" style="margin-bottom:5px;">
 				<div class="col-md-6">
-					<input id="cnae" type="text" pattern="[0-9a-zA-Z]{5}-[A-Z]{2}" required placeholder=" C.N.A.E." style="width:70%; float:right;">
+					<input id="cnae" type="text" pattern="[0-9]{5}-[0-9]{2}" required placeholder=" C.N.A.E." style="width:70%; float:right;">
 					<span style="float:right;"><b>C.N.A.E:</b></span><!-- Colocado em pilha pelo float-->
 				</div>
 			</div>
@@ -280,13 +280,13 @@
 			</div>
 			<div class="row" style="margin-bottom:5px;">
 				<div class="col-md-6">
-					<input id="nroDeTrabalhadores" onchange="calculaBrPdh(this.value);" pattern="[0-9]{1,6}" required type="text" placeholder=" Número de Trabalhadores" style="width:70%; float:right;">
+					<input id="nroDeTrabalhadores" onchange="calculaBrPdh(this.value);" required pattern="[0-9]{1,10}type="text" placeholder=" Número de Trabalhadores" style="width:70%; float:right;">
 					<span style="float:right;"><b>Nro de Trabalhadores:</b></span><!-- Colocado em pilha pelo float-->
 				</div>
 			</div>
 			<div class="row" style="margin-bottom:5px;">
 				<div class="col-md-6">
-					<input id="brPdh" type="text" pattern="[a-zA-Z0-9]{1,40}" required placeholder=" BR/PDH" style="width:70%; float:right;">
+					<input id="brPdh" type="text" pattern="[a-zA-Z0-9]{1,40}" required readonly placeholder=" BR/PDH" tabindex="-1" style="width:70%; float:right;">
 					<span style="float:right;"><b>BR/PDH:</b></span><!-- Colocado em pilha pelo float-->
 				</div>
 			</div>
@@ -298,13 +298,13 @@
 			</div>
 			<div class="row" style="margin-bottom:5px;">
 				<div class="col-md-6">
-					<input id="horarioDeTrabalho" pattern="[a-zA-Z0-9]{1,40}" required placeholder=" Horario de Trabalho" type="text" placeholder=" Horário de Trabalho" style="width:70%; float:right;">
+					<input id="horarioDeTrabalho" pattern="*{1,300}" required placeholder=" Horario de Trabalho" type="text" placeholder=" Horário de Trabalho" style="width:70%; float:right;">
 					<span style="float:right;"><b>Horário de Trabalho:</b></span><!-- Colocado em pilha pelo float-->
 				</div>
 			</div>
 			<div class="row" style="margin-bottom:5px;">
 				<div class="col-md-6">
-					<input id="responsavelLegal" type="text" pattern="[a-zA-Z]{1,40}" required placeholder=" ResponsávelLegal" style="width:70%; float:right;">
+					<input id="responsavelLegal" type="text" pattern="[A-Za-zÀ-ú ç]{1,100}" required placeholder=" ResponsávelLegal" style="width:70%; float:right;">
 					<span style="float:right;"><b>Responsável Legal:</b></span><!-- Colocado em pilha pelo float-->
 				</div>
 			</div>
@@ -316,7 +316,7 @@
 			</div>
 			<div class="row" style="margin-bottom:5px;">
 				<div class="col-md-6">
-					<input id="telefoneEmpresaCliente" type="text" pattern="\([0-9]{2}\) [0-9]?[0-9]{4}-[0-9]{4}" required placeholder=" XXXX-XXXX" style="width:70%; float:right;">
+					<input id="telefoneEmpresaCliente" type="text" pattern="\([0-9]{2}\) [0-9]{4}-[0-9]{4}[0-9]?" required placeholder=" XXXX-XXXX" style="width:70%; float:right;">
 					<span style="float:right;"><b>Telefone:</b></span><!-- Colocado em pilha pelo float-->
 				</div>
 			</div>
@@ -368,12 +368,17 @@
 	//Falta Opcional tratamento dos casos - Parte 2
 	//Falta Opcional callback e loading de sucesso ou falha com base no data
 	//Falta Opcional melhorar mascara do telefone
-	
 
 	$("#cadastroClinicaMatrizContainer").hide();
 	Inputmask.extendDefinitions({
   	'a': {
-    validator: "[a-zA-Z ]",
+    validator: "[A-Za-zÀ-ú ç]",
+    cardinality: 1,
+  	}
+	});
+	Inputmask.extendDefinitions({
+  	'*': {
+    validator: "[0-9A-Za-zÀ-ú ç]",
     cardinality: 1,
   	}
 	});
@@ -383,7 +388,7 @@
 	 $("#cpf").inputmask("999.999.999-99");
 	 $("#pis").inputmask("999.99999.99-9");//corrigir no html, nessa mascara e no isValid
 	 $("#profissaoDeRegistro").inputmask({mask: "*{6}-*/**"});
-	 $("#telefoneDoProfissional").inputmask({mask: "(99) 9{0,1}9999-9999",placeholder:""});	 
+	 $("#telefoneDoProfissional").inputmask({mask: "(99) 9999-99999{0,1}",placeholder:""});	 
 	 $("#dataDeRegistro").inputmask("99/99/9999");
 	 // $("#profissaoDeRegistro").inputmask({
      //           mask: "99:59:59",
@@ -398,20 +403,20 @@
   	 $("#pisExterno").inputmask("999.99999.99-9");
   	 $("#nomeDaMaeExterno").inputmask({mask:"a{1,40}", placeholder:""});
   	 $("#nomeDoPaiExterno").inputmask({mask:"a{1,40}", placeholder:""});
-  	 $("#telefoneDoProfissionalExterno").inputmask({mask: "(99) 9{0,1}9999-9999",placeholder:""});
+  	 $("#telefoneDoProfissionalExterno").inputmask({mask: "(99) 9999-99999{0,1}",placeholder:""});
 
-  	 $("#razaoSocial").inputmask({mask:"a{1,40}", placeholder:""});
+  	 $("#razaoSocial").inputmask({mask:"*{1,1000}", placeholder:""});
   	 $("#enderecoEmpresaCliente").inputmask({mask:"a{1,40}", placeholder:""});
   	 $("#ramoDeAtividade").inputmask({mask:"a{1,40}", placeholder:""});
-  	 $("#cnae").inputmask("*{5}-AA");
+  	 $("#cnae").inputmask("9{5}-99");
   	 $("#grauDeRisco").inputmask("9{1}");
   	 $("#nroDeTrabalhadores").inputmask({mask:"9{1,6}", placeholder:""});
-  	 $("#brPdh").inputmask({mask:"*{1,40}", placeholder:""});
+  	 //$("#brPdh").inputmask({mask:"*{1,40}", placeholder:""});
   	 $("#cnpjCgc").inputmask("9{8}/9{4}-9{2}");
-  	 $("#horarioDeTrabalho").inputmask({mask:"*{1,40}", placeholder:""});
-  	 $("#responsavelLegal").inputmask({mask:"*{1,40}", placeholder:""});
+  	 //$("#horarioDeTrabalho").inputmask({mask:"*{1,40}", placeholder:""});
+  	 $("#responsavelLegal").inputmask({mask:"a{1,100}", placeholder:""});
   	 $("#pisPasepCi").inputmask("9{3}.9{5}.9{2}-9");
-  	 $("#telefoneEmpresaCliente").inputmask({mask: "(99) 9{0,1}9999-9999",placeholder:""});
+  	 $("#telefoneEmpresaCliente").inputmask({mask: "(99) 9999-99999{0,1}",placeholder:""});
   	 $("#dataDoCadastro").inputmask("99/99/9999");
   	 $("#dataDoContrato").inputmask("99/99/9999");
   	 $("#tipoDeCobranca").inputmask("");
@@ -498,10 +503,18 @@
 	}
 
 	function calculaBrPdh(value){ 
-		console.log("o valor eh: "); 
-		console.log(value);
+		//console.log("o valor eh: "); 
+		//console.log(value);
+		value = parseInt($("#nroDeTrabalhadores").val());
+		//console.log(value);
+		if( (value >= 0) && (value <100) ){ value = "NA - Nao aplicavel";}
+		if( (value >= 100) && ( value <= 200) ){ value = 0.02*value;}
+		if( (value > 200) && ( value <= 500) ){ value = 0.03*value;}
+		if( (value > 500) && ( value <= 1000) ){ value = 0.04*value;}
+		if( (value > 1000)){ value = 0.05*value;}
+		value = Math.ceil(value);
 		$("#brPdh").val(value);
-
+		console.log(value);
 	}
 
 </script>
