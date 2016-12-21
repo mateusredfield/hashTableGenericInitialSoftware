@@ -256,13 +256,13 @@
 			</div>
 			<div class="row" style="margin-bottom:5px;">
 				<div class="col-md-6">
-					<input id="enderecoEmpresaCliente" type="text" pattern="[a-zA-Z ]{1,40}" required placeholder="Endereço" style="width:70%; float:right;">
+					<input id="enderecoEmpresaCliente" type="text" pattern=".{1,70}" required placeholder="Endereço" style="width:70%; float:right;">
 					<span style="float:right;"><b>Endereço:</b></span><!-- Colocado em pilha pelo float-->
 				</div>
 			</div>
 			<div class="row" style="margin-bottom:5px;">
 				<div class="col-md-6">
-					<input id="ramoDeAtividade" pattern="[a-zA-Z ]{1,40}" required type="text" placeholder=" Ramo de Atividade" style="width:70%; float:right;">
+					<input id="ramoDeAtividade" pattern="[A-Za-zÀ-ú ç]{1,70}" required type="text" placeholder=" Ramo de Atividade" style="width:70%; float:right;">
 					<span style="float:right;"><b>Ramo de Atividade:</b></span><!-- Colocado em pilha pelo float-->
 				</div>
 			</div>
@@ -280,13 +280,13 @@
 			</div>
 			<div class="row" style="margin-bottom:5px;">
 				<div class="col-md-6">
-					<input id="nroDeTrabalhadores" onchange="calculaBrPdh(this.value);" required pattern="[0-9]{1,10}type="text" placeholder=" Número de Trabalhadores" style="width:70%; float:right;">
+					<input id="nroDeTrabalhadores" onchange="calculaBrPdh(this.value);" required pattern="[0-9]{1,10}" type="text" placeholder=" Número de Trabalhadores" style="width:70%; float:right;">
 					<span style="float:right;"><b>Nro de Trabalhadores:</b></span><!-- Colocado em pilha pelo float-->
 				</div>
 			</div>
 			<div class="row" style="margin-bottom:5px;">
 				<div class="col-md-6">
-					<input id="brPdh" type="text" pattern="[a-zA-Z0-9]{1,40}" required readonly placeholder=" BR/PDH" tabindex="-1" style="width:70%; float:right;">
+					<input id="brPdh" type="text" pattern="[0-9A-Za-zÀ-ú ç]{1,40}" required readonly placeholder=" BR/PDH" tabindex="-1" style="width:70%; float:right;">
 					<span style="float:right;"><b>BR/PDH:</b></span><!-- Colocado em pilha pelo float-->
 				</div>
 			</div>
@@ -298,7 +298,7 @@
 			</div>
 			<div class="row" style="margin-bottom:5px;">
 				<div class="col-md-6">
-					<input id="horarioDeTrabalho" pattern="*{1,300}" required placeholder=" Horario de Trabalho" type="text" placeholder=" Horário de Trabalho" style="width:70%; float:right;">
+					<input id="horarioDeTrabalho" pattern=".{1,300}" required placeholder=" Horario de Trabalho" type="text" placeholder=" Horário de Trabalho" style="width:70%; float:right;">
 					<span style="float:right;"><b>Horário de Trabalho:</b></span><!-- Colocado em pilha pelo float-->
 				</div>
 			</div>
@@ -340,8 +340,12 @@
 			</div>
 			<div class="row" style="margin-bottom:5px;">
 				<div class="col-md-6">
-					<input id="tipoDeCobranca" type="text" placeholder=" Tipo de Cobrança" style="width:70%; float:right;">
-					<span style="float:right;"><b>Tipo de Cobrança:</b></span><!-- Colocado em pilha pelo float-->
+					<!--<input id="tipoDeCobranca" type="text" placeholder=" Tipo de Cobrança" style="width:70%; float:right;">-->
+					<span style="float:left;margin-left:9%;"><b>Tipo de Cobrança:</b></span>
+					<label for="tipoDeCobrancaSim" style="float:left;margin: 0 1% 0 3%;"> Sim</label>
+					<input type="radio" id="tipoDeCobrancaSim" name="tipoDeCobranca" value="Sim" style="float:left;">
+					<label for="tipoDeCobrancaNao" style="float:left;margin: 0 1% 0 3%;">Não</label>
+					<input type="radio" id="tipoDeCobrancaNao" name="tipoDeCobranca" value="Não" style="float:left;">
 				</div>
 			</div>
 			<div class="row" style="margin-bottom:15px;">
@@ -406,8 +410,8 @@
   	 $("#telefoneDoProfissionalExterno").inputmask({mask: "(99) 9999-99999{0,1}",placeholder:""});
 
   	 $("#razaoSocial").inputmask({mask:"*{1,1000}", placeholder:""});
-  	 $("#enderecoEmpresaCliente").inputmask({mask:"a{1,40}", placeholder:""});
-  	 $("#ramoDeAtividade").inputmask({mask:"a{1,40}", placeholder:""});
+  	 $("#enderecoEmpresaCliente").inputmask({mask:"*{1,70}", placeholder:""});
+  	 $("#ramoDeAtividade").inputmask({mask:"a{1,70}", placeholder:""});
   	 $("#cnae").inputmask("9{5}-99");
   	 $("#grauDeRisco").inputmask("9{1}");
   	 $("#nroDeTrabalhadores").inputmask({mask:"9{1,6}", placeholder:""});
@@ -487,7 +491,9 @@
 		var emailDaEmpresaCliente = $('#emailDaEmpresaCliente').val();
 		var dataDoCadastro = $('#dataDoCadastro').val();
 		var dataDoContrato = $('#dataDoContrato').val();
-		var tipoDeCobranca = $('#tipoDeCobranca').val();
+		//var tipoDeCobranca = $('#tipoDeCobranca').val();
+		var tipoDeCobranca = $('input[name="tipoDeCobranca"]:checked').val();
+		
 		$.post('CadastroEmpresaCliente.php',
 				{razaoSocial:razaoSocial, enderecoEmpresaCliente:enderecoEmpresaCliente, 
 					ramoDeAtividade:ramoDeAtividade, cnae:cnae, 
@@ -505,16 +511,15 @@
 	function calculaBrPdh(value){ 
 		//console.log("o valor eh: "); 
 		//console.log(value);
-		value = parseInt($("#nroDeTrabalhadores").val());
+		var value = parseInt($("#nroDeTrabalhadores").val());
 		//console.log(value);
 		if( (value >= 0) && (value <100) ){ value = "NA - Nao aplicavel";}
 		if( (value >= 100) && ( value <= 200) ){ value = 0.02*value;}
 		if( (value > 200) && ( value <= 500) ){ value = 0.03*value;}
 		if( (value > 500) && ( value <= 1000) ){ value = 0.04*value;}
 		if( (value > 1000)){ value = 0.05*value;}
-		value = Math.ceil(value);
+		if( !isNaN(value)){value = Math.ceil(value);}
 		$("#brPdh").val(value);
-		console.log(value);
 	}
 
 </script>
